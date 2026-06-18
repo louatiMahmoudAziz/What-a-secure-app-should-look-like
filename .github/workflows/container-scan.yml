@@ -1,0 +1,4 @@
+# TODO Phase 4: Trivy container + filesystem scans (spec 18.2 items 11-12).
+name: Container Scan
+on:
+  workflow_dispatch:

@@ -1,0 +1,36 @@
+[project]
+name = "secure-steganography-platform"
+version = "0.1.0"
+description = "Secure-by-default FastAPI platform for encrypted PNG steganography"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "S", "UP", "N"]  # S = bandit-style security rules
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]  # test-only credentials
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+exclude = ["app/db/migrations/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q --strict-markers"
+markers = [
+  "cloud: requires Azure resources (deselect with '-m \"not cloud\"')",
+]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["app/db/migrations/*"]
+
+[tool.coverage.report]
+fail_under = 80

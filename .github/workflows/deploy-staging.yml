@@ -1,0 +1,9 @@
+# TODO Phase 5: OIDC deployment to Azure Container Apps (spec 19).
+# CI → scans → build → scan image → push to ACR → deploy revision → smoke test → rollback.
+# NO long-lived Azure credentials. NO AZURE_CLIENT_SECRET.
+name: Deploy Staging
+on:
+  workflow_dispatch:
+permissions:
+  id-token: write   # OIDC
+  contents: read

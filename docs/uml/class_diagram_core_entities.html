@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html><head></head><body>
+<h2 class="sr-only">Class diagram of User, Session, and ProcessingJob entities</h2>
+<div id="cd"></div>
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"Anthropic Sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"Anthropic Sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+    primaryColor: dark ? '#2d2b44' : '#EEEDFE',
+    primaryBorderColor: dark ? '#7F77DD' : '#534AB7',
+    primaryTextColor: dark ? '#c2c0b6' : '#3d3d3a',
+  },
+});
+const { svg } = await mermaid.render('cd-svg', `classDiagram
+    direction TB
+    class User {
+        +UUID id
+        +string email
+        +string password_hash
+        +UserRole role
+        +UserStatus status
+        +datetime created_at
+        +datetime updated_at
+        +datetime last_login_at
+        +int failed_login_count
+        +datetime locked_until
+    }
+    class Session {
+        +UUID id
+        +UUID user_id
+        +string refresh_token_hash
+        +UUID session_family_id
+        +datetime issued_at
+        +datetime expires_at
+        +datetime revoked_at
+        +UUID replaced_by_session_id
+        +string user_agent_summary
+        +string source_ip_hash
+    }
+    class ProcessingJob {
+        +UUID id
+        +UUID user_id
+        +JobType job_type
+        +JobStatus status
+        +int input_size_bytes
+        +int output_size_bytes
+        +int payload_size_bytes
+        +float capacity_utilization
+        +string algorithm_version
+        +string artifact_checksum
+        +int processing_time_ms
+        +datetime created_at
+        +datetime expires_at
+        +datetime deleted_at
+        +string failure_category
+    }
+    User "1" --> "0..*" Session : owns
+    User "1" --> "0..*" ProcessingJob : owns
+`);
+document.getElementById('cd').innerHTML = svg;
+</script>
+</body></html>

@@ -1,0 +1,5 @@
+# TODO Phase 4: CodeQL analysis for Python (spec 18.1).
+# Use the standard github/codeql-action starter workflow, pinned versions.
+name: CodeQL
+on:
+  workflow_dispatch:

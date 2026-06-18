@@ -1,0 +1,4 @@
+# TODO Phase 6 (optional): OWASP ZAP baseline scan against local compose stack.
+name: DAST
+on:
+  workflow_dispatch:

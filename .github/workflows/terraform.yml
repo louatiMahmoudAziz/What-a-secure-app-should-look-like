@@ -1,0 +1,4 @@
+# TODO Phase 5: terraform fmt -check, validate, Checkov/Trivy config scan (spec 18.2 items 13-15).
+name: Terraform
+on:
+  workflow_dispatch:

@@ -1,0 +1,22 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+
+# Terraform — never commit state or secrets
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+backend.hcl
+*.tfplan
+
+# local artifacts
+/tmp/
+benchmarks/local-*

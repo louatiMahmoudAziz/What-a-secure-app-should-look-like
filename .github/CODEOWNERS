@@ -1,0 +1,3 @@
+# Workflow and Terraform changes require owner review (spec 18.3)
+/.github/workflows/ @YOUR_GITHUB_USERNAME
+/terraform/ @YOUR_GITHUB_USERNAME

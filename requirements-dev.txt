@@ -1,0 +1,9 @@
+pytest
+pytest-asyncio
+pytest-cov
+coverage
+httpx
+ruff
+mypy
+pip-audit
+types-redis

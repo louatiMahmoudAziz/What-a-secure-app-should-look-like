@@ -1,0 +1,16 @@
+# Pin exact versions before first release (pip-compile or uv lock recommended).
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+alembic
+psycopg[binary]
+argon2-cffi
+pyjwt
+cryptography
+pillow
+numpy
+redis
+python-multipart
+structlog
