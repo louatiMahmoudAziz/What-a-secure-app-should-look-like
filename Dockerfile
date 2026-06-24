@@ -1,4 +1,4 @@
-FROM python:3.12-slim AS base
+FROM python:3.14-slim AS base
 
 # Non-root user (Definition of Done: container runs non-root)
 RUN groupadd -r app && useradd -r -g app -d /app app
